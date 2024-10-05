@@ -6,6 +6,7 @@ import { useLocalStorage } from "usehooks-ts";
 import { useOrganization, useOrganizationList } from "@clerk/nextjs";
 
 import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Accordion } from "@/components/ui/accordion";
 
@@ -16,7 +17,7 @@ interface SidebarProps {
 }
 
 export const Sidebar = ({ storageKey = "g-sidebar-state" }: SidebarProps) => {
-  const [expanded, setExpanded] = useLocalStorage<Record<string, boolean>>(
+  const [expanded, setExpanded] = useLocalStorage<Record<string, any>>(
     storageKey,
     {}
   );
@@ -67,7 +68,9 @@ export const Sidebar = ({ storageKey = "g-sidebar-state" }: SidebarProps) => {
   return (
     <>
       <div className="font-medium text-xs flex items-center mb-1">
-        <span className="pl-4 text-fuchsia-800 font-bold text-lg">Workspaces</span>
+        <span className="pl-4 text-fuchsia-800 font-bold text-lg">
+          Workspaces
+        </span>
         <Button
           asChild
           type="button"

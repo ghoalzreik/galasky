@@ -21,7 +21,7 @@ export const FormPicker = ({ id, errors }: FormPickerProps) => {
   const { pending } = useFormStatus();
 
   const [images, setImages] =
-    useState<Array<{ [key: string]: any }>>(defaultImages);
+    useState<Array<Record<string, any>>>(defaultImages);
   const [isLoading, setIsLoading] = useState(true);
   const [selectedImageId, setSelectedImageId] = useState(null);
 
@@ -34,7 +34,7 @@ export const FormPicker = ({ id, errors }: FormPickerProps) => {
         });
 
         if (result && result.response) {
-          const newImages = result.response as Array<{ [key: string]: any }>;
+          const newImages = result.response as Array<Record<string, any>>;
           setImages(newImages);
         } else {
           console.error("Failed to get images from Unsplash");
