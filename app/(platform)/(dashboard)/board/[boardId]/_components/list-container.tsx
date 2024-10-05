@@ -2,7 +2,7 @@
 
 import { toast } from "sonner";
 import { useEffect, useState } from "react";
-import { DragDropContext, Droppable } from "@hello-pangea/dnd";
+import { DragDropContext, Droppable, DropResult } from "@hello-pangea/dnd";
 
 import { ListWithCards } from "@/types";
 import { useAction } from "@/hooks/use-action";
@@ -15,6 +15,18 @@ import { ListItem } from "./list-item";
 interface ListContainerProps {
   data: ListWithCards[];
   boardId: string;
+}
+
+interface DragEndResult {
+  destination: {
+    droppableId: string;
+    index: number;
+  };
+  source: {
+    droppableId: string;
+    index: number;
+  };
+  type: string;
 }
 
 function reorder<T>(list: T[], startIndex: number, endIndex: number) {
@@ -50,7 +62,7 @@ export const ListContainer = ({ data, boardId }: ListContainerProps) => {
     setOrderedData(data);
   }, [data]);
 
-  const onDragEnd = (result: any) => {
+  const onDragEnd = (result: DropResult<string>) => {
     const { destination, source, type } = result;
 
     if (!destination) {
@@ -77,7 +89,7 @@ export const ListContainer = ({ data, boardId }: ListContainerProps) => {
 
     // User moves a card
     if (type === "card") {
-      let newOrderedData = [...orderedData];
+      const newOrderedData = [...orderedData];
 
       // Source and destination list
       const sourceList = newOrderedData.find(
