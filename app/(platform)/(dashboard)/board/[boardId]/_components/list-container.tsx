@@ -1,7 +1,5 @@
 "use client";
 
-import { List } from "@prisma/client";
-
 import { toast } from "sonner";
 import { useEffect, useState } from "react";
 import { DragDropContext, Droppable } from "@hello-pangea/dnd";
@@ -122,7 +120,6 @@ export const ListContainer = ({ data, boardId }: ListContainerProps) => {
           boardId: boardId,
           items: reorderedCards,
         });
-
         // User moves the card to another list
       } else {
         // Remove card from the source list
@@ -154,8 +151,8 @@ export const ListContainer = ({ data, boardId }: ListContainerProps) => {
 
   return (
     <DragDropContext onDragEnd={onDragEnd}>
-       <Droppable droppableId="lists" type="list" direction="horizontal">
-         {(provided) => (
+      <Droppable droppableId="lists" type="list" direction="horizontal">
+        {(provided) => (
           <ol
             {...provided.droppableProps}
             ref={provided.innerRef}

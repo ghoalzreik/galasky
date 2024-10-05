@@ -1,17 +1,11 @@
 // import Image from "next/image";
 import Link from "next/link";
-import localFont from "next/font/local";
 import { Lobster } from "next/font/google";
 import { PT_Serif } from "next/font/google";
 import { Sparkles } from "lucide-react";
 
-
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-
-const headingFont = localFont({
-  src: "../../public/fonts/font.woff2",
-});
 
 const textFont1= Lobster({
   subsets: ["latin"],
