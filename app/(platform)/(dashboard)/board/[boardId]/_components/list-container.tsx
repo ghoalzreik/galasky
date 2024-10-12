@@ -1,7 +1,5 @@
 "use client";
 
-import { List } from "@prisma/client";
-
 import { toast } from "sonner";
 import { useEffect, useState } from "react";
 import { DragDropContext, Droppable } from "@hello-pangea/dnd";

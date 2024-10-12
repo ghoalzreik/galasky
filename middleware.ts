@@ -1,6 +1,6 @@
 import { authMiddleware, redirectToSignIn } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
- 
+
 export default authMiddleware({
   publicRoutes: ["/", "/api/webhook"],
   afterAuth(auth, req) {
@@ -11,7 +11,7 @@ export default authMiddleware({
         path = `/organization/${auth.orgId}`;
       }
 
-      const orgSelection = new URL(path,req.url);
+      const orgSelection = new URL(path, req.url);
       return NextResponse.redirect(orgSelection);
     }
 
@@ -23,10 +23,9 @@ export default authMiddleware({
       const orgSelection = new URL("/select-org", req.url);
       return NextResponse.redirect(orgSelection);
     }
-
-  }
+  },
 });
- 
+
 export const config = {
   matcher: ["/((?!.+\\.[\\w]+$|_next).*)", "/", "/(api|trpc)(.*)"],
 };

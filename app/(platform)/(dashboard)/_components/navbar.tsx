@@ -1,8 +1,7 @@
-import { Plus } from "lucide-react";
-import { OrganizationSwitcher, UserButton } from "@clerk/nextjs";
-
 import { Logo } from "@/components/logo";
 import { Button } from "@/components/ui/button";
+import { OrganizationSwitcher, UserButton } from "@clerk/nextjs";
+import { Plus } from "lucide-react";
 import { MobileSidebar } from "./mobile-sidebar";
 import { FormPopover } from "@/components/form/form-popover";
 
@@ -26,14 +25,13 @@ export const Navbar = () => {
 
         <FormPopover>
           <Button
-          variant="primaryblue"
-          size="sm"
-          className="rounded-sm block md:hidden"
-        >
-          <Plus className="h-4 w-4" />
-        </Button>
+            variant="primaryblue"
+            size="sm"
+            className="rounded-sm block md:hidden"
+          >
+            <Plus className="h-4 w-4" />
+          </Button>
         </FormPopover>
-        
       </div>
       <div className="ml-auto flex items-center gap-x-2 hover:bg-purple-500/10">
         <OrganizationSwitcher
@@ -63,6 +61,5 @@ export const Navbar = () => {
         />
       </div>
     </nav>
-    
   );
 };

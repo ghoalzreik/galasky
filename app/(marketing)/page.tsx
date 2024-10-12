@@ -1,20 +1,19 @@
 // import Image from "next/image";
+import { Sparkles } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { cn } from "@/lib/utils";
 import { Lobster } from "next/font/google";
 import { PT_Serif } from "next/font/google";
-import { Sparkles } from "lucide-react";
-
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
-
-const textFont1= Lobster({
-  subsets: ["latin"],
-  weight: ["400"],
-})
 
 const textFont = PT_Serif({
   subsets: ["latin"],
   weight: ["400", "700"],
+});
+
+const textFont1 = Lobster({
+  subsets: ["latin"],
+  weight: ["400"],
 });
 
 const MarketingPage = () => {
@@ -22,8 +21,8 @@ const MarketingPage = () => {
     <div className="flex items-center justify-center flex-col">
       <div
         className={cn(
-          "flex items-center justify-center flex-col", // when we use cn we pass our default classes,
-          textFont.className // then we write the dynamic class.
+          "flex items-center justify-center flex-col",
+          textFont.className
         )}
       >
         <div className="flex items-center text-white mb-2 text-4xl md:text-5xl font-bold">
